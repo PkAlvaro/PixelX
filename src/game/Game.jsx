@@ -264,8 +264,8 @@ const pagarImpuesto = async (jugadorID, idPartida, casillaID) => {
 const obtenerEventoAleatorio = async (casillaID, jugadorID) => {
     try {
         const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/partida/aleatorio`, {
-            id_casilla: casillaID,
-            id_jugador: jugadorID,
+            idCasilla : casillaID,
+            idJugador : jugadorID,
         }, {
             headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -341,8 +341,8 @@ const obtenerEventoAleatorio = async (casillaID, jugadorID) => {
 
             if (oldPos > newPos && newPos <= 5) {
                 axios.post(`${import.meta.env.VITE_BACKEND_URL}/partida/sumarinicio`, {
-                    id_partida: idPartida, 
-                    id_jugador: jugadorID},
+                    idPartida: idPartida, 
+                    idJugador: jugadorID},
                     {headers: { 'Authorization': `Bearer ${token}` }
                 })
                 .then((response) => {
@@ -406,8 +406,8 @@ const obtenerEventoAleatorio = async (casillaID, jugadorID) => {
     }
 
     const enviarACarcel = (jugadorID) => {
-        axios.post(`${import.meta.env.VITE_BACKEND_URL}/partida/carcel`, {id_jugador: jugadorID},
-        {headers: { 'Authorization': `Bearer ${token}` }}
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/partida/carcel`, {idJugador: jugadorID},
+            {headers: { 'Authorization': `Bearer ${token}` }}
         )
         .then((response) => {
             obtenerJugadores();
@@ -530,7 +530,7 @@ const obtenerEventoAleatorio = async (casillaID, jugadorID) => {
     }
 
     const bancarrota = () => {
-        axios.post(`${import.meta.env.VITE_BACKEND_URL}/partida/bancarrota`, { id_jugador: jugadores[numTurno].id },
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/partida/bancarrota`, { idJugador: jugadores[numTurno].id },
             {headers: { 'Authorization': `Bearer ${token}` }})
             .then((response) => {
                 console.log(response.data);
