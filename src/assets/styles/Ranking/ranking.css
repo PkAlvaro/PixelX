@@ -1,0 +1,59 @@
+.ranking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('/src/assets/imgs/LandingPage/landingPageFondo.png'); 
+    background-size: cover;
+    background-position: center;
+    color: #095677
+}
+
+.ranking-title {
+    font-size: 55px;
+    color: #dbf0f9;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   
+
+}
+
+.ranking-box {
+    list-style: none;
+    padding: 0;
+    width: 90%;
+    max-width: 600px;
+    margin: 0;
+}
+
+.ranking-message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(207, 213, 231, 0.8);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    text-align: left;
+
+}
+
+
+.ranking-message span {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+
+.ranking-position {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.ranking-username, .ranking-highscore {
+    flex: 1;
+    text-align: center;
+}

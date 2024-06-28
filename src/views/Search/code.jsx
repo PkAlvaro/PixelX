@@ -1,8 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../auth/AuthContext';
 import '/src/assets/styles/Search/code.css';
 import { useNavigate } from 'react-router-dom';
+
+
 
 function Code () {
     const {user} = useContext(AuthContext);
@@ -13,6 +15,26 @@ function Code () {
     const [contador, setContador] = useState(10);
     const navigate = useNavigate();
     const [ token, setToken ] = useState(localStorage.getItem('token') || null);
+    const [suspendido, setSuspendido] = useState(false);
+
+    useEffect(() => {
+        const checkEstado = async () => {
+            if (user && token) {
+                try {
+                    const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/usuarios/${user.id}/estado`, 
+                        {headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    if (response.data === 'suspendido') {
+                        setSuspendido(true);
+                    }
+                }
+                catch (error) {
+                    console.error(error);
+                }
+            }
+        }
+        checkEstado();
+    }, [user, token]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -21,6 +43,11 @@ function Code () {
 
         if (!user) {
             setError('Debes iniciar sesión para poder jugar');
+            return;
+        }
+
+        if (suspendido) {
+            setError('Tu cuenta ha sido suspendida. No puedes crear partidas.');
             return;
         }
 
@@ -73,6 +100,7 @@ function Code () {
                         value={turnos}
                         onChange={(e) => setTurnos(Number(e.target.value))}
                     >
+                        <option value="3">5</option>
                         <option value="20">20</option>
                         <option value="25">25</option>
                         <option value="30">30</option>

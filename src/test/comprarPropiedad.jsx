@@ -26,7 +26,6 @@ function ComprarPropiedad () {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             setResult(response.data);
-            console.log(response.data);
         }
         catch (error) {
             console.error(error);

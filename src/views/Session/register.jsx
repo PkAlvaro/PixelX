@@ -58,7 +58,6 @@ function Register() {
                 setMsg(JSON.stringify(error.response.data.message));
             } else {
                 setMsg(error.response.data || "Error al registrarse");
-                console.log(error.response.data.message);
             }
         } else {
             setMsg("Error al registrarse");

@@ -15,7 +15,6 @@ function WaitRoom() {
     const fetchPartida = () => {
         axios.post(`${import.meta.env.VITE_BACKEND_URL}/partida/status`, {idPartida: idPartida}, {headers: { 'Authorization': `Bearer ${token}` }})
         .then((response) => {
-            console.log(response.data);
             setCantJugadores(response.data.participaciones);
             if (response.data.status === "full") {
                 setStatus("Listo para comenzar ...");

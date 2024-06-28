@@ -18,21 +18,9 @@ JWT_SECRET= jwt_secret
 
 4. En cada repositorio ejecutar `yarn` para instalar las dependencias.
 
-5. Mediante terminal ejecutar los siguientes comandos para resetar la base de datos y poblarla con datos de prueba.
-(Ir ejecutando una linea a la vez)
-- `TRUNCATE TABLE "Usuarios" RESTART IDENTITY  CASCADE;`
-
-- `TRUNCATE TABLE "ServicioTrenJugadors" RESTART IDENTITY  CASCADE;`
-
-- `TRUNCATE TABLE "Partidas" RESTART IDENTITY  CASCADE;`
-
-- `TRUNCATE TABLE "Participacions" RESTART IDENTITY  CASCADE;`
-
-- `TRUNCATE TABLE "Jugadors" RESTART IDENTITY  CASCADE;`
-
-- `TRUNCATE TABLE "Casillas" RESTART IDENTITY  CASCADE;`
-
-- Luego en el backend ejecutar las semillas con `yarn sequelize-cli db:seed:all`
+5. Mediante terminal ejecutar los siguientes comandos para poder usar la base de datos.
+   
+- `yarn sequelize-cli db:migrate;`
 
 6. En cada repositorio ejecutar `yarn dev` para iniciar el servidor.
 
@@ -44,15 +32,8 @@ JWT_SECRET= jwt_secret
 
 10. Listo! Ya puedes disfrutar de la aplicación.
 
-##  Endpoints
+##  Documentación API
 
-Para probar los endpoints se debe usar al usuario Admin, ya que es el único que puede acceder a ellos (tanto desde el LandingPage como del Navbar)
+[Documentación de la API](https://documenter.getpostman.com/view/34426387/2sA3duFYDo)
 
-Para probar los endpoints, es necesario
-
-- Al menos tres usuarios creados conectados a la misma partida.
-
-- Tener una partida creada.
-
-Además para probar cualquier endpoint, es necesario comenzar por el `Comprar Propiedad` y luego seguir con los demás.
  

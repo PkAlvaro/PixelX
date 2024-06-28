@@ -8,12 +8,13 @@ function LandingPage() {
     const [ token, setToken ] = useState(localStorage.getItem('token') || null);
 
     useEffect(() => {
+        localStorage.removeItem('numTurno')
         localStorage.removeItem('dadosInicio');
         localStorage.removeItem('mostrarDadoMover');
         localStorage.removeItem('mostrarDadoPartida');
+        localStorage.removeItem('enBancarrota');
         
         if (token && token !== 'null') {
-            console.log('Estas logeado');
             setLogeado(true);
         }
     }
@@ -27,6 +28,7 @@ function LandingPage() {
                         
                         <a className='button' href='/join'>Unirse a Partida</a>
                         <a className='button' href='/code'>Crear Partida Privada</a>
+                        <a className='button' href='/ranking'>Ranking</a>
                         
                     </>
                 )}
@@ -38,8 +40,8 @@ function LandingPage() {
                 )}
                 <a className='button' href='/aboutus'>Nosotros</a>
                 <a className='button' href='/instructions'>Instrucciones</a>
-                {/* <a className='button' href='/ranking'>Ranking</a> */}
-                {/* <a className='button' href='/endpoints'>Probar endpoints</a> */}
+                
+
 
             </div>
         </>

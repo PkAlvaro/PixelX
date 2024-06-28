@@ -34,7 +34,6 @@ function EnterCode () {
                 codigo: codigo
             }, {headers: { 'Authorization': `Bearer ${token}` }});
             setPartida(response.data);
-            console.log(response.data);
             if (!response.data) {
                 setError('No se encontró la partida');
             } else {

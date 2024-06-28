@@ -1,12 +1,19 @@
-import React from "react";
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { GameContext } from "../../context/GameContext.jsx";
 import "/src/assets/styles/instructions/instructions.css";
+
 
 function Instructions() {
     const navigate = useNavigate();
+    const { isInGame, gameId } = useContext(GameContext);
 
     const goBack = () => {
-        navigate('/'); 
+        if (isInGame && gameId) {
+            navigate(`/game/${gameId}`);
+        } else {
+            navigate('/'); 
+        }
     };
 
     return (
@@ -68,7 +75,9 @@ function Instructions() {
                     </div>
                 </div>
                 <div className="button-container">
-                    <button className="button-back" onClick={goBack}>Volver</button>
+                    <button className="button-back" onClick={goBack}>
+                        {isInGame && gameId ? 'Volver a la partida' : 'Volver al menú'}
+                    </button>
                 </div>
             </div>
         </div>

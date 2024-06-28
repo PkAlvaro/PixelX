@@ -4,14 +4,25 @@ import "/src/assets/styles/game/dice.css";
 import axios from 'axios';
 
 
-const Dado = ({ onRoll }) => {
+const Dado = ({ onRoll , reset }) => {
     const [dice, setDice] = useState(1);
     const [ token, setToken ] = useState(localStorage.getItem('token') || null);
+    const [ isClicked, setIsClicked ] = useState(false);
     
+
+    useEffect(() => {
+        if (reset){
+            setIsClicked(false);
+        }
+    }, [reset]);
+
     const rollDice = async () => {
+        if (isClicked) return;
+
+        setIsClicked(true);
+        
         try {
             const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/partida/lanzar`, {headers: { 'Authorization': `Bearer ${token}` }});
-            console.log(response.data);
             setDice(response.data.numero);
             onRoll(response.data.numero);
         } catch (error) {

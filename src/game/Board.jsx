@@ -3,40 +3,20 @@ import Card from "./Card";
 import "/src/assets/styles/game/board.css";
 import axios from 'axios';
 import Ficha from './Ficha';
+import Casa from './Casa';
+import Tren from './Tren';
 
-function Board({jugadores}) {
-    // const cards = [
-    //     { id:1, imgSrc: "/src/assets/imgs/Casillas/casilla_1.PNG" },
-    //     { id:2, imgSrc: "/src/assets/imgs/Casillas/casilla_2.PNG" },
-    //     { id:3, imgSrc: "/src/assets/imgs/Casillas/casilla_3.PNG" },
-    //     { id:4, imgSrc: "/src/assets/imgs/Casillas/casilla_4.PNG" },
-    //     { id:5, imgSrc: "/src/assets/imgs/Casillas/casilla_5.PNG" },
-    //     { id:6, imgSrc: "/src/assets/imgs/Casillas/casilla_6.PNG" },
-    //     { id:7, imgSrc: "/src/assets/imgs/Casillas/casilla_7.PNG" },
-    //     { id:8, imgSrc: "/src/assets/imgs/Casillas/casilla_8.PNG" },
-    //     { id:9, imgSrc: "/src/assets/imgs/Casillas/casilla_9.PNG" },
-    //     { id:10, imgSrc: "/src/assets/imgs/Casillas/casilla_10.PNG" },
-    //     { id:11, imgSrc: "/src/assets/imgs/Casillas/casilla_11.PNG" },
-    //     { id:12, imgSrc: "/src/assets/imgs/Casillas/casilla_12.PNG"},
-    //     { id:13, imgSrc: "/src/assets/imgs/Casillas/casilla_13.PNG" },
-    //     { id:14, imgSrc: "/src/assets/imgs/Casillas/casilla_14.PNG" },
-    //     { id:15, imgSrc: "/src/assets/imgs/Casillas/casilla_15.PNG" },  
-    //     { id:16, imgSrc: "/src/assets/imgs/Casillas/casilla_16.PNG"},
-    //     { id:17, imgSrc: "/src/assets/imgs/Casillas/casilla_17.PNG" },
-    //     { id:18, imgSrc: "/src/assets/imgs/Casillas/casilla_18.PNG" },
-    //     { id:19, imgSrc: "/src/assets/imgs/Casillas/casilla_19.PNG" },
-    //     { id:20, imgSrc: "/src/assets/imgs/Casillas/casilla_20.PNG"}
-    // ];
+function Board({jugadores, propiedad_casa, propiedad_tren}) {
 
     const [cards, setCards] = useState([{id: 1, imagen: '', mensaje: ''}]);
     const [ token, setToken ] = useState(localStorage.getItem('token') || null);
+
 
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_BACKEND_URL}/casillas/`, {headers: { 'Authorization': `Bearer ${token}` }})
             .then((response) => {
                 const data = response.data;
-                console.log(data);
                 setCards(data);
             }).catch((error) => {
                 console.error("Error al obtener las casillas:", error);
@@ -48,16 +28,32 @@ function Board({jugadores}) {
     return (
         <div className="board-container">
             <div className="board">
-                
                 {cards.map((card, index) => (
                     <Card key={card.id} imgSrc={card.imagen} index={index} />
                 ))}
-                {
-                    jugadores.map((jugador, index) => (
-                        <Ficha key={index} posicion={jugador.posicion} color={jugador.color}/>
+                {jugadores.map((jugador, index) => (
+                    <Ficha key={index} posicion={jugador.posicion} color={jugador.color}/>
+                ))}
+                 {propiedad_casa.map((propiedad) => (
+                    propiedad.propiedades.map((casilla, index) => (
+                        <Casa 
+                            key={`${propiedad.id_jugador}-${index}`} 
+                            posicion={casilla[0]} 
+                            numCasas={casilla[1]} 
+                            color={jugadores.find(j => j.id === propiedad.id_jugador)?.color || 'defaultColor'} 
+                        />
                     ))
-                }
-                {/* <Ficha posicion={1}/> */}
+                ))}
+                {propiedad_tren.map((propiedad) => (
+                    propiedad.servicios.map((casilla, index) => (
+                        <Tren 
+                            key={`${propiedad.id_jugador}-${index}`} 
+                            posicion={casilla[0]} 
+                            numTrenes={casilla[1]} 
+                            color={jugadores.find(j => j.id === propiedad.id_jugador)?.color || 'defaultColor'} 
+                        />
+                    ))
+                ))}
             </div>
         </div>
     )

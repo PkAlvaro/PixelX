@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Agrega un espacio entre la imagen y los botones */
+    gap: 10px; 
 }
 
 .card-display-container-rotated {
@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* Agrega un espacio entre la imagen y los botones */
+    gap: 10px; 
 }
 
 .single-card-container {
@@ -54,7 +54,7 @@
 .button-container-display {
     display: flex;
     flex-direction: row;
-    gap: 20px; /* Espacio entre los botones */
+    gap: 20px;
 }
 
 .button-card-display {
@@ -75,4 +75,20 @@
     font-size: 20px;
     color: #095677;
     text-align: center;
+}
+
+.button-volver {
+    position: absolute;
+    left: 500px;
+    width: 100px;
+    padding: 10px;
+    background-color: #eaf6fb;
+    color: #095677;
+    text-decoration: none;
+    border-radius: 20px; 
+    box-shadow: 0 4px #095677;
+    text-align: center;
+    transition: transform 0.2s;
+    border: none;
+    cursor: pointer;
 }

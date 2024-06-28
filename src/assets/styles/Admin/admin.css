@@ -1,0 +1,74 @@
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('/src/assets/imgs/LandingPage/landingPageFondo.png'); 
+    background-size: cover;
+    background-position: center;
+    color: #095677;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.admin-title {
+    font-size: 55px;
+    color: #dbf0f9;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   
+
+}
+
+.admin-box {
+    list-style: none;
+    padding: 0;
+    width: 90%;
+    max-width: 800px;
+    margin: 0;
+}
+
+.admin-message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(207, 213, 231, 0.8);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    text-align: wrap;
+
+}
+
+
+.admin-message span {
+    display: inline-block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+
+.admin-name {
+    font-weight: bold;
+    margin-right: 10px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.admin-email, .admin-role, .admin-estado{
+    flex: 1;
+    text-align: center;
+    min-width: 150px;
+}
+
+.button-register {
+    margin-top: 10px;
+    flex: 0 0 auto;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}

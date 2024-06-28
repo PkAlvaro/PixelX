@@ -19,6 +19,7 @@ import Renta from "../test/pagarRenta";
 import Impuesto from "../test/pagarImpuesto";
 import ComprarPropiedad from "../test/comprarPropiedad";
 import ComprarCasas from "../test/comprarCasa";
+import Ranking from "../views/Ranking/ranking"; 
 
 function Routing() {
   return (
@@ -43,6 +44,7 @@ function Routing() {
             <Route path="/pagarImpuesto" element={<Impuesto />} />
             <Route path="/comprarPropiedad" element={<ComprarPropiedad />} />
             <Route path="/comprarCasas" element={<ComprarCasas />} />
+            <Route path="/ranking" element={<Ranking />} />
 
 
 
