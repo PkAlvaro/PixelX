@@ -1,0 +1,32 @@
+.dice-container {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -10%); 
+    z-index: 1000; 
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.dice {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.dice-instruction {
+    font-size: 1rem;
+    color: #333;
+}
+
+.dice-1, .dice-2, .dice-3, .dice-4, .dice-5, .dice-6 {
+    /* Puedes agregar estilos específicos para cada cara del dado si lo deseas */
+    color: black;
+}

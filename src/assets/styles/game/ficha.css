@@ -1,0 +1,36 @@
+.ficha-container-rojo {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/src/assets/imgs/Fichas/rojo.png'); /* Asegúrate de que esta ruta es correcta */
+    position: absolute;
+}
+
+.ficha-container-verde {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/src/assets/imgs/Fichas/verde.png'); /* Asegúrate de que esta ruta es correcta */
+    position: absolute;
+}
+
+.ficha-container-morado {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/src/assets/imgs/Fichas/morado.png'); /* Asegúrate de que esta ruta es correcta */
+    position: absolute;
+}
+
+.ficha {
+    width: 100%;
+    height: 100%;
+}
+
+.posicion-1-morado {
+    top: 0;
+    left: 0;
+}

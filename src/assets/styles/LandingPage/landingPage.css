@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(210, 230, 173); 
+    background-image: url('/src/assets/imgs/LandingPage/Fondo_landing.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.buttons {
+    position: absolute;
+    right: 170px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.button {
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #eaf6fb;
+    color: #095677;
+    text-decoration: none;
+    border-radius: 140px; 
+    box-shadow: 0 4px #095677;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.button:hover {
+    background-color: #082e54;
+    color: #bfe3ec;
+}
+
+.button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px #095677;
+}

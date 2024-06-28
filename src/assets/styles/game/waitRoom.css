@@ -1,0 +1,27 @@
+.centered-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/src/assets/imgs/LandingPage/landingPageFondo.png');
+}
+
+.box {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    max-width: 400px; 
+    width: 90%; 
+    max-height: 350px;
+    height: 100%;
+    text-align: center;
+    color: black; 
+}
+
+.box h1, .box h2 {
+    margin-top: 40px;
+    font-size: 1.5rem; 
+}
