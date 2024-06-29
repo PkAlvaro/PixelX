@@ -27,7 +27,6 @@ const Navbar = () => {
     }, [user]);
 
     const handleReload = (e) => {
-        e.preventDefault(); 
         localStorage.removeItem('isInGame');
         localStorage.removeItem('gameId');
         window.location.reload();
