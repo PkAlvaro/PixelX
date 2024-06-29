@@ -5,7 +5,7 @@ import { AuthContext } from '../auth/AuthContext';
 import './Navbar.css';
 import LogoutButton from '../views/Session/logout';
 import axios from 'axios';
-import Logo_PixelX from 'src/assets/imgs/LandingPage/Logo_PixelX.png'
+import Logo_PixelX from '../assets/imgs/LandingPage/Logo_PixelX.png';
 
 const Navbar = () => {
     const { user } = useContext(AuthContext);
