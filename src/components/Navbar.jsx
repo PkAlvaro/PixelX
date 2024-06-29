@@ -12,7 +12,7 @@ const Navbar = () => {
     //const { isInGame, gameId, setIsInGame, setGameId } = useContext(GameContext);
     const [userinfo, setUserinfo] = useState(null);
     const [token, setToken] = useState(localStorage.getItem('token') || null);
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (user) {
@@ -26,9 +26,10 @@ const Navbar = () => {
         }
     }, [user]);
 
-    const handleReload = (e) => {
+    const handleReload = () => {
         localStorage.removeItem('isInGame');
         localStorage.removeItem('gameId');
+        navigate('/');
         window.location.reload();
     };
 
