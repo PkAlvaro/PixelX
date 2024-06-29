@@ -63,7 +63,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-logo">
-                <img src={'/src/assets/imgs/LandingPage/Logo PixelX.png'} alt="Game Logo" />
+                <img src={'/src/assets/imgs/LandingPage/Logo_PixelX.png'} alt="Game Logo" />
             </div>
         </nav>
     );
