@@ -15,6 +15,7 @@ function LandingPage() {
         localStorage.removeItem('enBancarrota');
         localStorage.removeItem('isInGame');
         localStorage.removeItem('gameId');
+        window.location.reload();
         
         if (token && token !== 'null') {
             setLogeado(true);
