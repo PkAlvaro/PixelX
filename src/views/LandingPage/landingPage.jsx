@@ -13,6 +13,8 @@ function LandingPage() {
         localStorage.removeItem('mostrarDadoMover');
         localStorage.removeItem('mostrarDadoPartida');
         localStorage.removeItem('enBancarrota');
+        localStorage.removeItem('isInGame');
+        localStorage.removeItem('gameId');
         
         if (token && token !== 'null') {
             setLogeado(true);
