@@ -26,6 +26,13 @@ const Navbar = () => {
         }
     }, [user]);
 
+    const handleReload = (e) => {
+        e.preventDefault(); 
+        localStorage.removeItem('isInGame');
+        localStorage.removeItem('gameId');
+        window.location.reload();
+    };
+
     // const handleNavigation = (path) => {
     //     if (isInGame && gameId) {
     //         const confirmExit = window.confirm("¿Estás seguro de que quieres volver al menú principal? No podrás regresar a esta partida.");
@@ -45,8 +52,8 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="navbar-left">
                 <ul className="navbar-links">
-                     <li><Link to="/">Inicio</Link></li>
-                    <li><Link to="/instructions">Instrucciones</Link></li>
+                <li><Link to="/" onClick={handleReload}>Inicio</Link></li>
+                <li><Link to="/instructions">Instrucciones</Link></li>
                     <li><Link to="/aboutus">Sobre Nosotros</Link></li>
                     {user && <li><Link to="/join">Buscar partida</Link></li>}
                     {user && <li><Link to="/code">Crear partida</Link></li>}
